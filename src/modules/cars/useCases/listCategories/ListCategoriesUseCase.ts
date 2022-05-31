@@ -1,3 +1,4 @@
+import { AppError } from './../../../../errors/AppError';
 import { ICategoryRepository } from "../../repositories/ICategoryRepository";
 import { Category } from "../../entities/Category";
 import { inject, injectable } from "tsyringe";
@@ -12,7 +13,7 @@ class ListCategoryUseCase {
     const all = await this.categoriesRepository.list();
 
     if(!all) {
-      throw new Error("Could not list categories.")
+      throw new AppError("Could not list categories.")
     }
 
     return all;
