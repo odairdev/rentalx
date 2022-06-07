@@ -36,7 +36,7 @@ class AuthenticateUserUseCase {
         throw new AppError("Email or password incorrect.")
       }
 
-      const token = sign({}, process.env.WEB_TOKEN_KEYWORD, {
+      const token = sign({}, "ignite", {
         subject: user.id,
         expiresIn: "1d"
       })

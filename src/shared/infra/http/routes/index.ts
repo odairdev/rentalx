@@ -1,3 +1,4 @@
+import { carRoutes } from './cars.routes';
 import { authenticateRoutes } from './authenticate.routes';
 import { usersRoutes } from './usersRoutes.routes';
 import { Router } from "express";
@@ -10,3 +11,4 @@ router.use("/categories", categoriesRoutes)
 router.use("/specifications", specificationsRoutes)
 router.use("/users", usersRoutes)
 router.use("/session", authenticateRoutes)
+router.use("/cars", carRoutes)
