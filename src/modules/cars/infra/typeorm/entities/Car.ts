@@ -1,6 +1,7 @@
-import { Category } from '@modules/cars/infra/typeorm/entities/Category';
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Category } from './Category';
+import { Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryColumn } from "typeorm";
 import { v4 as uuidv4 } from "uuid";
+import { Specifications } from './Specifications';
 
 @Entity("cars")
 export class Car {
@@ -28,6 +29,14 @@ export class Car {
 
   @Column()
   brand: string;
+
+  @ManyToMany(() => Specifications)
+  @JoinTable({
+    name: "specifications_cars",
+    joinColumns: [{ name: "car_id"}],
+    inverseJoinColumns: [{name: "specification_id"}]
+  })
+  specifications: Specifications[]
 
   @ManyToOne(() => Category)
   @JoinColumn({ name: "category_id"})
