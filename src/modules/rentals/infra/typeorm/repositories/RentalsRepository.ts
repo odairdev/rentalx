@@ -11,8 +11,16 @@ class RentalsRepository implements IRentalsRepository {
     this.repository = getRepository(Rental)
   }
 
-  async create({ car_id, user_id, expected_return_date }: ICreateRentalDTO): Promise<void> {
+  async create({ car_id, user_id, expected_return_date }: ICreateRentalDTO): Promise<Rental> {
     
+  }
+
+  async findOpenRentalByCar(car_id: string): Promise<Rental> {
+    return await this.repository.findOne({ car_id })
+  }
+
+  async findOpenRentalByUser(user_id: string): Promise<Rental> {
+    return await this.repository.findOne({ user_id })
   }
 }
 
