@@ -11,6 +11,7 @@ import { ISpecificationsRepository } from "../../modules/cars/repositories/ISpec
 import { CarsRepository } from '@modules/cars/infra/typeorm/repositories/CarsRepository';
 import { CarsImagesRepository } from '@modules/cars/infra/typeorm/repositories/CarsImagesRepository';
 import { RentalsRepository } from '@modules/rentals/infra/typeorm/repositories/RentalsRepository';
+import '@shared/container/providers'
 
 container.registerSingleton<ICategoryRepository>(
   "CategoryRepository",

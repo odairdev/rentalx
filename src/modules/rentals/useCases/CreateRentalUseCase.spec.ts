@@ -16,7 +16,7 @@ describe("Create a Rental", () => {
   beforeEach(() => {
     rentalsRepositoryInMemory = new RentalsRepositoryInMemory()
     dayjsDateProvider = new DayjsDateProvider()
-    dayAfter24hours = dayjs().subtract(3, "days")
+    dayAfter24hours = dayjs().add(3, "days")
     createRentalUseCase = new CreateRentalUseCase(rentalsRepositoryInMemory, dayjsDateProvider)
   })
 

@@ -15,6 +15,7 @@ class CreateRentalUseCase {
   constructor(
     @inject("RentalsRepository")
     private rentalsRepository: IRentalsRepository,
+    @inject("DateProvider")
     private dayjsDateProvider: IDateProvider
   ){}
 
@@ -32,7 +33,7 @@ class CreateRentalUseCase {
       throw new AppError("Rental is unavailable")
     }
     
-    const compare = this.dayjsDateProvider.compareInHours(expected_return_date, this.dayjsDateProvider.dateNow(new Date()))
+    const compare = this.dayjsDateProvider.compareInHours(this.dayjsDateProvider.dateNow(new Date()), expected_return_date)
 
     if(compare < minimunHoursDifference) {
       throw new AppError(`Minimun rental time is 24, input was ${compare} hours.`)

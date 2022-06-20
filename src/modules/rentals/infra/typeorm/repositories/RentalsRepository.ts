@@ -12,7 +12,15 @@ class RentalsRepository implements IRentalsRepository {
   }
 
   async create({ car_id, user_id, expected_return_date }: ICreateRentalDTO): Promise<Rental> {
-    
+    const rental = this.repository.create({
+      car_id,
+      user_id,
+      expected_return_date
+    })
+
+    await this.repository.save(rental)
+
+    return rental
   }
 
   async findOpenRentalByCar(car_id: string): Promise<Rental> {

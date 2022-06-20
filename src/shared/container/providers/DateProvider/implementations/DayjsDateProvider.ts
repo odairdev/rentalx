@@ -4,7 +4,6 @@ import utc from 'dayjs/plugin/utc';
 
 dayjs.extend(utc)
 
-
 class DayjsDateProvider implements IDateProvider {
 
   convertToUTC(date: Date): string {
