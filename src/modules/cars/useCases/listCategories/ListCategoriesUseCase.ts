@@ -1,6 +1,6 @@
 import { AppError } from './../../../../errors/AppError';
 import { ICategoryRepository } from "../../repositories/ICategoryRepository";
-import { Category } from "../../entities/Category";
+import { Category } from "@modules/cars/infra/typeorm/entities/Category";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
